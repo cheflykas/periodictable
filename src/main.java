@@ -11,11 +11,11 @@ public class main {
 		for(int r = 0; r < 118; r++) {
 			for(int c = 0; c < 10; c++) {
 				String input = sc.next();
-				System.out.print(input + "; ");
+//				System.out.print(input + "; ");
 				data[c] = input;
 			}
 			Element element = new Element(data);
-			System.out.println();
+			element.add();
 		}
 	}
 
