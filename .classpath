@@ -21,5 +21,6 @@
 	<classpathentry kind="lib" path="C:/Users/Lukas/Downloads/Compressed/poi-bin-4.1.1-20191023/poi-4.1.1/lib/jaxb-impl-2.3.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Lukas/Downloads/Compressed/poi-bin-4.1.1-20191023/poi-4.1.1/lib/junit-4.12.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Lukas/Downloads/Compressed/poi-bin-4.1.1-20191023/poi-4.1.1/lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Lukas/Documents/GitHub/periodictable/apcs.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
