@@ -1,7 +1,6 @@
 import java.io.*;
 import java.util.*;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.*;
 
 import apcs.Window;
 
