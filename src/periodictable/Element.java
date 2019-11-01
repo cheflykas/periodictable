@@ -1,13 +1,14 @@
+package periodictable;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import javax.swing.*;
+import javax.swing.border.Border;
 
-public class Element extends JFrame{
-
-	private JButton btn;
-	private JTextArea textArea;
-	private JLabel text;
+public class Element{
+	
+	private JButton btn1;
+	private JButton btn2;
 	public int count = 0;
 	private int numOfElements = 118;
 	private int[] atomicNumber = new int[numOfElements];
@@ -22,29 +23,52 @@ public class Element extends JFrame{
 	private String[] EN = new String[numOfElements];
 	
 	public Element() {
-		super("Periodic Table");
+		JFrame frame = new JFrame("Periodic Table");
 		
-		setLayout(new BorderLayout());
+		frame.setLayout(new BorderLayout());
 		
-		btn = new JButton("Next Element");
-		textArea = new JTextArea();
+		JToolBar toolbar = new JToolBar();
+		JTextArea textArea = new JTextArea();
+		JPanel panel = new JPanel();
+		Dimension dim = new Dimension();
+		dim.width = 300;
+		textArea.setEditable(false);
+		toolbar.setRollover(true);
+		panel.setPreferredSize(dim);
+		panel.setBorder(BorderFactory.createCompoundBorder(
+				BorderFactory.createEmptyBorder(5, 5, 5, 5), 
+				BorderFactory.createTitledBorder("About Element")));
 		
-		btn.addActionListener(new ActionListener() {
+		btn1 = new JButton("Next Element");
+		btn2 = new JButton("Other Button");
+		toolbar.add(btn1);
+		toolbar.add(btn2);
+		toolbar.setBorder(BorderFactory.createEtchedBorder());
+		toolbar.addSeparator();
+		
+		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textArea.append(add(count) + "\n");
 				count++;
 			}
 		});
+
+		btn2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textArea.append("*OTHER BUTTON*\n");
+				count++;
+			}
+		});
 		
-		add(new JScrollPane(textArea), BorderLayout.CENTER);
-		add(btn, BorderLayout.SOUTH);
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		setSize(1015, 625);
-		setSize(350, 500);
-		setResizable(false);
-		setVisible(true);
+		Container pane = frame.getContentPane();
+		pane.add(panel, BorderLayout.WEST);
+		pane.add(toolbar, BorderLayout.NORTH);
+		pane.add(new JScrollPane(textArea), BorderLayout.CENTER);
 		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(1015, 625);
+		frame.setVisible(true);
 	}
 	
 	public void setValues(String[][] a) {
