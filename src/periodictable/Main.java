@@ -19,10 +19,11 @@ public class Main {
 			}
 		}
 		
+		Element.setValues(data);
+		
 		Element element = new Element();
-		element.setValues(data);
 		for(int r = 0; r < data.length; r++) {
-			System.out.println(element.add(r));
+			System.out.println(element.console(r));
 		}
 		sc.close();
 	}
