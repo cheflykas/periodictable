@@ -6,7 +6,7 @@
 6	C	Carbon		14	2	12.01	3800	4300	0.709	2.55	NMetal
 7	N	Nitrogen	15	2	14.007	63.15	77.36	1.04	3.04	NMetal
 8	O	Oxygen		16	2	15.99	54.36	90.2	0.918	3.44	NMetal
-9	F	Fluorine	17	2	18.99	53.53	85.03	0.824	3.98	Halo
+9	F	Fluorine	17	2	18.99	53.53	85.03	0.824	3.98	NMetal
 10	Ne	Neon		18	2	20.17	24.56	27.07	1.03	-	NobleG
 11	Na	Sodium		1	3	22.98	370.87	1156	1.228	0.93	Alkali
 12	Mg	Magnesium	2	3	24.3	923	1363	1.023	1.31	AEarth
@@ -14,7 +14,7 @@
 14	Si	Silicon		14	3	28.08	1687	3538	0.705	1.9	MLoid
 15	P	Phosphorus	15	3	30.97	317.3	550	0.769	2.19	NMetal
 16	S	Sulfur		16	3	32.06	388.36	717.87	0.71	2.58	NMetal
-17	Cl	Chlorine	17	3	35.45	171.6	239.11	0.479	3.16	Halo
+17	Cl	Chlorine	17	3	35.45	171.6	239.11	0.479	3.16	NMetal
 18	Ar	Argon		18	3	39.94	83.8	87.3	0.52	-	NobleG
 19	K	Potassium	1	4	39.09	336.53	1032	0.757	0.82	Alkali
 20	Ca	Calcium		2	4	40.07	1115	1757	0.647	1	AEarth
@@ -32,7 +32,7 @@
 32	Ge	Germanium	14	4	72.63	1211.4	3106	0.32	2.01	MLoid
 33	As	Arsenic		15	4	74.92	1090 	887	0.329	2.18	MLoid
 34	Se	Selenium	16	4	78.97	453	958	0.321	2.55	NMetal
-35	Br	Bromine		17	4	79.9	265.8	332	0.474	2.96	Halo
+35	Br	Bromine		17	4	79.9	265.8	332	0.474	2.96	NMetal
 36	Kr	Krypton		18	4	83.79	115.79	119.93	0.248	3	NobleG
 37	Rb	Rubidium	1	5	85.46	312.46	961	0.363	0.82	Alkali
 38	Sr	Strontium	2	5	87.62	1050	1655	0.301	0.95	AEarth
@@ -50,7 +50,7 @@
 50	Sn	Tin		14	5	118.7	505.08	2875	0.228	1.96	PostTr
 51	Sb	Antimony	15	5	121.7	903.78	1860	0.207	2.05	MLoid
 52	Te	Tellurium	16	5	127.6	722.66	1261	0.202	2.1	MLoid
-53	I	Iodine		17	5	126.9	386.85	457.4	0.214	2.66	Halo
+53	I	Iodine		17	5	126.9	386.85	457.4	0.214	2.66	NMetal
 54	Xe	Xenon		18	5	131.2	161.4	165.03	0.158	2.6	NobleG
 55	Cs	Caesium		1	6	132.9	301.59	944	0.242	0.79	Alkali
 56	Ba	Barium		2	6	137.3	1000	2170	0.204	0.89	AEarth

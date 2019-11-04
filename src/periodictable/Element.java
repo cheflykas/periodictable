@@ -47,7 +47,7 @@ public class Element{
 	public String add(int x) {
 		return (atomicNumber[x] + ": "
 				+  elementName[x] + " ("
-				+  elementSymbol[x] +  ") - A "
+				+  elementSymbol[x] +  ") - "
 				+  category[x]);
 	}
 	
@@ -144,6 +144,27 @@ public class Element{
 			buttons[index] = new JButton(elementSymbol[i]);
 			buttons[index].setLayout(new BorderLayout());
 			buttons[index].setFont(new Font("Arial", Font.BOLD, 20));
+			if(category[index].equals("NMetal")) {
+				buttons[index].setBackground(new Color(240, 255, 140));
+			} else if (category[index].equals("Alkali")) {
+				buttons[index].setBackground(new Color(255, 100, 100));
+			} else if (category[index].equals("AEarth")) {
+				buttons[index].setBackground(new Color(255, 225, 175));
+			} else if (category[index].equals("Lanthanide")) {
+				buttons[index].setBackground(new Color(255, 190, 255));
+			} else if (category[index].equals("Actinide")) {
+				buttons[index].setBackground(new Color(255, 150, 200));
+			} else if (category[index].equals("Trans")) {
+				buttons[index].setBackground(new Color(255, 190, 190));
+			} else if (category[index].equals("PostTr")) {
+				buttons[index].setBackground(new Color(200, 200, 200));
+			} else if (category[index].equals("MLoid")) {
+				buttons[index].setBackground(new Color(200, 200, 150));
+			} else if (category[index].equals("NobleG")) {
+				buttons[index].setBackground(new Color(190, 255, 255));
+			}  else {
+				buttons[index].setBackground(new Color(230, 230, 230));
+			}
 			JLabel name = new JLabel(elementName[i]);
 			JLabel number = new JLabel(Integer.toString(atomicNumber[i]));
 			name.setFont(new Font("Arial", Font.PLAIN, 10));
