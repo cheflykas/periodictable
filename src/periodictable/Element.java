@@ -26,6 +26,7 @@ public class Element{
 	private static String[] boiling = new String[numOfElements];
 	private static String[] HC = new String[numOfElements];
 	private static String[] EN = new String[numOfElements];
+	private static String[] category = new String[numOfElements];
 	
 	public static void setValues(String[][] a) {
 		for(int r = 0; r < a.length; r++) {
@@ -39,13 +40,15 @@ public class Element{
 			boiling[r] = a[r][7];
 			HC[r] = a[r][8];
 			EN[r] = a[r][9];
+			category[r] = a[r][10];
 		}
 	}
 	
 	public String add(int x) {
 		return (atomicNumber[x] + ": "
 				+  elementName[x] + " ("
-				+  elementSymbol[x] +  ")");
+				+  elementSymbol[x] +  ") - A "
+				+  category[x]);
 	}
 	
 	public String console(int x) {
@@ -58,7 +61,7 @@ public class Element{
 				+  melting[x] + "; "
 				+  boiling[x] + "; "
 				+  HC[x] + "; "
-				+  EN[x]);
+				+  EN[x] + "; " + category[x]);
 	}
 
 	
