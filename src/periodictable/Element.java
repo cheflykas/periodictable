@@ -1,10 +1,11 @@
 package periodictable;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Line2D;
+import java.awt.geom.RoundRectangle2D;
 import java.io.*;
 import java.util.*;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
 
@@ -48,7 +49,9 @@ public class Element{
 		return (atomicNumber[x] + ": "
 				+  elementName[x] + " ("
 				+  elementSymbol[x] +  ") - "
-				+  category[x]);
+				+  category[x] + "; "
+				+  atomicMass[x] + "; " 
+				+  EN[x]);
 	}
 	
 	public String console(int x) {
@@ -64,6 +67,13 @@ public class Element{
 				+  EN[x] + "; " + category[x]);
 	}
 
+
+	public void border(Component c, String text) {
+		((JComponent) c).setBorder(BorderFactory.createCompoundBorder(
+				BorderFactory.createEmptyBorder(5, 5, 5, 5), 
+				BorderFactory.createTitledBorder(text)));
+		
+	}
 	
 	public Element() {
 		
@@ -80,24 +90,17 @@ public class Element{
 		JPanel console = new JPanel();
 		Dimension dimPanel = new Dimension();
 		
-		dimPanel.width = 250;
+		dimPanel.width = 275;
 		textArea.setEditable(false);
 		textArea.setFont(new Font("Consolas", Font.PLAIN, 12));
 		toolbar.setRollover(true);
 		sidepanel.setPreferredSize(dimPanel);
-		sidepanel.setLayout(new BorderLayout());
 		console.setPreferredSize(new Dimension(1600, 150));
 		console.setLayout(new BorderLayout());
 		console.add(new JScrollPane(textArea), BorderLayout.CENTER);
-		mainPanel.setBorder(BorderFactory.createCompoundBorder(
-				BorderFactory.createEmptyBorder(5, 5, 5, 5), 
-				BorderFactory.createTitledBorder("Choose Element")));
-		sidepanel.setBorder(BorderFactory.createCompoundBorder(
-				BorderFactory.createEmptyBorder(5, 5, 5, 5), 
-				BorderFactory.createTitledBorder("About Element")));
-		console.setBorder(BorderFactory.createCompoundBorder(
-				BorderFactory.createEmptyBorder(5, 5, 5, 5), 
-				BorderFactory.createTitledBorder("Console Output")));
+		border(mainPanel, "Choose Element");
+		border(sidepanel, "About Element");
+		border(console, "Console Output");
 		
 		btn1 = new JButton("Next Element");
 		btn2 = new JButton("Window Size");
@@ -128,7 +131,39 @@ public class Element{
 	            if (e.getSource() instanceof JButton) {
 	                String text = ((JButton) e.getSource()).getText();
 	                int indexOf = Arrays.asList(elementSymbol).indexOf(text);
+	                String[] labels = {"About", "Element"};
+	                String[][] data = {{"Atomic Number (Z)", Integer.toString(atomicNumber[indexOf])},
+				                		{"Atomic Weight", atomicMass[indexOf]},
+				                		{"Group", group[indexOf]},
+				                		{"Period", period[indexOf]},
+				                		{"Category", category[indexOf]},
+				                		{"Melting Point (K)", melting[indexOf]},
+				                		{"Boiling Point (K)", boiling[indexOf]},
+				                		{"Electronegativity", EN[indexOf]}};
+	                
 	                textArea.append(add(indexOf) + "\n");
+	                JButton about = new JButton(elementSymbol[indexOf]);
+	                JLabel number = new JLabel(Integer.toString(atomicNumber[indexOf]));
+	                JLabel name = new JLabel(elementName[indexOf]);
+	                JTable info = new JTable(data, labels);
+	                name.setFont(new Font("Arial", Font.BOLD, 15));
+	    			number.setFont(new Font("Arial", Font.BOLD, 20));
+	    			name.setHorizontalAlignment(SwingConstants.CENTER);
+	    			number.setHorizontalAlignment(SwingConstants.CENTER);
+	                about.setLayout(new BorderLayout());
+	                about.setFont(new Font("Arial", Font.BOLD, 70));
+	                about.setPreferredSize(new Dimension(150, 150));
+	                about.setBackground(buttons[indexOf].getBackground());
+	                about.add(number, BorderLayout.NORTH);
+	                about.add(name, BorderLayout.SOUTH);
+	                sidepanel.removeAll();
+	                sidepanel.revalidate();
+	                sidepanel.repaint();
+	                sidepanel.add(about);
+	                sidepanel.add(new JLabel(add(indexOf)));
+	                sidepanel.add(info);
+	                
+	                frame.validate();
 	            }
 	        }
 	    };
@@ -168,13 +203,13 @@ public class Element{
 			JLabel name = new JLabel(elementName[i]);
 			JLabel number = new JLabel(Integer.toString(atomicNumber[i]));
 			name.setFont(new Font("Arial", Font.PLAIN, 10));
-			number.setFont(new Font("Arial", Font.PLAIN, 8));
+			number.setFont(new Font("Arial", Font.PLAIN, 10));
 			name.setHorizontalAlignment(SwingConstants.CENTER);
 			number.setHorizontalAlignment(SwingConstants.CENTER);
-			buttons[index].addActionListener(listener);
 			buttons[index].setPreferredSize(new Dimension(65, 65));
 			buttons[index].add(name, BorderLayout.SOUTH);
 			buttons[index].add(number, BorderLayout.NORTH);
+			buttons[index].addActionListener(listener);
 			mainPanel.add(buttons[index]);
 		}
 

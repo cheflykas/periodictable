@@ -1,9 +1,6 @@
 package periodictable;
 import java.io.*;
 import java.util.*;
-import javax.swing.*;
-
-import apcs.Window;
 
 public class Main {
 	
